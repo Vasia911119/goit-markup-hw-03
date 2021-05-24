@@ -32,6 +32,12 @@
   --button-accent-background-color: #2196f3;
   --address-text-color: #ffffff;
   --contacts-footer-text-color: rgba(255, 255, 255, 0.6);
+  --shadow-team-card: 0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+  --shadow-button-accent: 0px 3px 1px rgba(0, 0, 0, 0.1),
+    0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
+  --portfolio-description-border: #eeeeee;
+  --card-set-gap: 30px;
 }
 /* Page background and text color */
 body {
@@ -41,6 +47,11 @@ body {
   font-size: 14px;
   line-height: 1.71;
   letter-spacing: 0.03em;
+}
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 /* List options */
 .list {
@@ -203,42 +214,61 @@ body {
 }
 .feature.list {
   display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(-1 * var(--card-set-gap));
+  margin-left: calc(-1 * var(--card-set-gap));
 }
 .feature .item {
-  width: calc((100% - 90px) / 4);
+  flex-basis: calc(100% / 4 - var(--card-set-gap));
+  margin-top: var(--card-set-gap);
+  margin-left: var(--card-set-gap);
+  /* width: calc((100% - 90px) / 4); */
 }
-.feature .item + .item {
+/* .feature .item + .item {
   margin-left: 30px;
-}
+} */
 /* Example of work */
 .example.list {
   display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(-1 * var(--card-set-gap));
+  margin-left: calc(-1 * var(--card-set-gap));
 }
 .example .item {
-  width: calc((100% - 60px) / 3);
+  flex-basis: calc(100% / 3 - var(--card-set-gap));
+  margin-top: var(--card-set-gap);
+  margin-left: var(--card-set-gap);
+  /* width: calc((100% - 60px) / 3); */
 }
-.example .item + .item {
+/* .example .item + .item {
   margin-left: 30px;
-}
+} */
 .example > .item {
   margin-bottom: 94px;
 }
-
 /* Team */
 .team {
   background-color: var(--fourth-background-color);
 }
 .our-team {
   display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(-1 * var(--card-set-gap));
+  margin-left: calc(-1 * var(--card-set-gap));
 }
 .our-team .item {
-  width: calc((100% - 90px) / 4);
-  height: 368px;
+  flex-basis: calc(100% / 4 - var(--card-set-gap));
+  margin-top: var(--card-set-gap);
+  margin-left: var(--card-set-gap);
+  /* width: calc((100% - 90px) / 4); */
   background-color: var(--primary-background-color);
+  box-shadow: var(--shadow-team-card);
+  border-radius: 0px 0px 4px 4px;
+  overflow: hidden;
 }
-.our-team .item + .item {
+/* .our-team .item + .item {
   margin-left: 30px;
-}
+} */
 .section.team {
   padding-top: 94px;
   padding-bottom: 94px;
@@ -288,6 +318,7 @@ body {
 .buttons {
   display: flex;
   justify-content: center;
+  margin-bottom: 50px;
 }
 .button {
   padding: 6px 22px;
@@ -306,19 +337,20 @@ body {
 .button:focus {
   color: var(--button-accent-text-color);
   background-color: var(--button-accent-background-color);
+  box-shadow: var(--shadow-button-accent);
+  border-radius: 4px;
 }
 .buttons .item + .item {
   margin-left: 8px;
 }
-.buttons .button {
-  margin-bottom: 50px;
-}
 /* Portfolio */
+.section.portfolio-all {
+  padding-top: 73px;
+  padding-bottom: 115px;
+}
 .portfolio .title {
   margin-top: 0;
-  margin-right: 24px;
   margin-bottom: 4px;
-  margin-left: 24px;
 
   color: var(--title-text-color);
   font-size: 18px;
@@ -328,30 +360,33 @@ body {
 .portfolio {
   display: flex;
   flex-wrap: wrap;
+  margin-top: calc(-1 * var(--card-set-gap));
+  margin-left: calc(-1 * var(--card-set-gap));
 }
-.portfolio .item {
-  margin-right: 30px;
+.portfolio.list .item {
+  flex-basis: calc(100% / 3 - var(--card-set-gap));
+  margin-top: var(--card-set-gap);
+  margin-left: var(--card-set-gap);
+  overflow: hidden;
+  /* margin-right: 30px;
   margin-bottom: 30px;
-  width: calc((100% - 60px) / 3);
-  height: 404px;
+  width: calc((100% - 60px) / 3); */
 }
-.portfolio .item:nth-child(3n) {
+/* .portfolio .item:nth-child(3n) {
   margin-right: 0;
 }
 .portfolio .item:nth-last-child(-n + 3) {
   margin-bottom: 0;
-}
-.portfolio .item {
-  border-bottom: 20px;
-}
+} */
 .portfolio .link {
   text-decoration: none;
 }
+.portfolio .description {
+  padding: 20px 24px;
+  border: 1px solid var(--portfolio-description-border);
+}
 .portfolio .work-type {
-  margin-top: 0;
-  margin-right: 24px;
-  margin-bottom: 4px;
-  margin-left: 24px;
+  margin: 0;
 
   color: var(--primary-text-color);
   font-size: 16px;
@@ -365,7 +400,7 @@ body {
   padding-top: 60px;
   padding-right: auto;
   padding-bottom: 60px;
-  padding-left: 0;
+  padding-left: auto;
 }
 .footer .logo {
   display: block;
