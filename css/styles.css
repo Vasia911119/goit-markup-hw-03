@@ -86,7 +86,7 @@ img {
 }
 
 /* Page-header */
-.header .container {
+.header {
   border-bottom: 1px solid var(--border-bottom-color);
 }
 /* Main-nav */
